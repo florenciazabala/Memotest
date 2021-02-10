@@ -1,0 +1,98 @@
+.cuadro{
+    width: 200px; /* Medidas del contenedor principal */
+    height: 200px;
+    position: relative;
+    margin: 10px;
+}
+
+.anverso, .reverso{
+    width: 100%; /* Indico que ocupen en 100% de las medidas del contenedor principal que estableci arriba */
+    height: 100%;
+    position: absolute; /* 1- ATRIBUTO RELACIONADO CON EL EFECTO*/
+    top: 0;
+    left: 0;
+    border-radius: 4px;   
+}
+
+.anverso{
+    background: cornflowerblue;
+    backface-visibility: hidden; /* 2- PROPIEDAD */
+    transform: perspective(600px) rotateY(0deg); /* 3- PROPIEDAD */
+    transition: all 1s;
+}
+.reverso{
+    backface-visibility: hidden; /* 2- PROPIEDAD */
+    transform: perspective(600px) rotateY(180deg); /* 3- PROPIEDAD */
+    transition: all 1s;
+}
+
+.mostrarReverso{
+    transform: perspective(600px) rotateY(0deg);
+}
+/*
+.cuadro:hover > .reverso{
+    transform: perspective(600px) rotateY(0deg);
+}
+*/
+.mostrarAnverso{
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+/*
+.cuadro:hover > .anverso{
+    transform: perspective(600px) rotateY(-180deg);
+}
+*/
+
+.ocultarReverso{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.ocultarAnverso{
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.completo{
+    background-color: grey;
+}
+
+#resultadoJuego{
+    display: none;
+}
+
+
+
+
+
+
+.renacimiento1{
+    background-image: url(../imagenes/renacimiento1.jpg);
+    background-size: cover;
+}
+.renacimiento2{
+    background-image: url(../imagenes/renacimiento2.jpg);
+    background-size: cover;
+}
+.renacimiento3{
+    background-image: url(../imagenes/renacimiento3.jpg);
+    background-size: cover;
+}
+.renacimiento4{
+    background-image: url(../imagenes/renacimiento4.jpg);
+    background-size: cover;
+}
+.renacimiento5{
+    background-image: url(../imagenes/renacimiento5.jpg);
+    background-size: cover;
+}
+.renacimiento6{
+    background-image: url(../imagenes/renacimiento6.jpg);
+    background-size: cover;
+}
+.renacimiento7{
+    background-image: url(../imagenes/renacimiento7.jpg);
+    background-size: cover;
+}
+.renacimiento8{
+    background-image: url(../imagenes/renacimiento8.jpg);
+    background-size: cover;
+}
