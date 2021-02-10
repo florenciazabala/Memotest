@@ -1,8 +1,15 @@
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 .cuadro{
-    width: 200px; /* Medidas del contenedor principal */
-    height: 200px;
+    width: 180px; /* Medidas del contenedor principal */
+    height: 180px;
     position: relative;
-    margin: 10px;
+    margin: 0.3rem;
+    margin-top: 10px;
 }
 
 .anverso, .reverso{
@@ -60,9 +67,31 @@
 }
 
 
-
-
-
+.obra{
+    width: 80px;
+    height: 80px;
+    opacity: 0.8;
+}
+.obra:hover{
+    opacity: 1;
+}
+.cardObra > .row{
+    padding: 0;
+    margin: 0;
+}
+.cardObra{
+    padding: 0;
+    margin-bottom: 5px;
+    
+    width: 80%;
+}
+.info{
+    background-color: rgb(238, 235, 235);
+    /*border: 1px solid gray;*/
+}
+.autor{
+    font-size: 10px;
+}
 
 .renacimiento1{
     background-image: url(../imagenes/renacimiento1.jpg);
@@ -94,5 +123,38 @@
 }
 .renacimiento8{
     background-image: url(../imagenes/renacimiento8.jpg);
+    background-size: cover;
+}
+
+.surrealismo1{
+    background-image: url(../imagenes/surrealismo1.jpg);
+    background-size: cover;
+}
+.surrealismo2{
+    background-image: url(../imagenes/surrealismo2.jpg);
+    background-size: cover;
+}
+.surrealismo3{
+    background-image: url(../imagenes/surrealismo3.jpg);
+    background-size: cover;
+}
+.surrealismo4{
+    background-image: url(../imagenes/surrealismo4.jpg);
+    background-size: cover;
+}
+.surrealismo5{
+    background-image: url(../imagenes/surrealismo5.jpg);
+    background-size: cover;
+}
+.surrealismo6{
+    background-image: url(../imagenes/surrealismo6.jpg);
+    background-size: cover;
+}
+.surrealismo7{
+    background-image: url(../imagenes/surrealismo7.jpg);
+    background-size: cover;
+}
+.surrealismo8{
+    background-image: url(../imagenes/surrealismo8.jpg);
     background-size: cover;
 }

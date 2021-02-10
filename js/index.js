@@ -1,3 +1,4 @@
+let estiloTablero = "renacimiento";
 let turnos = 0;
 let $primerCuadro = null;
 let $primerCuadroAnverso = null;
@@ -7,12 +8,55 @@ const $mensajeFinJuego = document.querySelector('#resultadoJuego');
 let $cuadroactualReverso = null; //ver
 let $elementoReverso;
 
+function configurarEstiloUsuario (){
+    let $botonEstilo = document.querySelector("#agregarEstilo");
+    $botonEstilo.onclick = function (event){
+        event.preventDefault();
+        estilo();
+    }
+}
+
+
+function estilo (){
+    let formulario = document.querySelector("#estilos");
+    formulario.onchange = function (){
+        estiloTablero = document.querySelector("#estilos").estilo.value;
+        
+    } 
+}
+
+function mostrarObrasReferencia (obras){
+    let $obrasReferencias = document.querySelectorAll(".obra");
+    let titulos = [ 
+        {titulo:"El nacimiento de Venus", autor: "Sandro Botticelli"}, 
+        {titulo:"La creación de Adán", autor: "Miguel Ángel"}, 
+        {titulo:"Amor sacro y amor profano", autor: "Tiziano"}, 
+        {titulo:"La ultima cena", autor: "Leonardo Da Vinci"}, 
+        {titulo:"La escuela de Atenas", autor: "Rafael Sanzio"},
+        {titulo:"Mona Lisa", autor: "Leonardo Da Vinci"}, 
+        {titulo:"La primavera", autor: "Sandro Botticelli"}, 
+        {titulo:"Venus y Adonis", autor: "Tiziano"}
+    ]
+    let $titulo = document.querySelectorAll(".titulo");
+    let $autor = document.querySelectorAll(".autor");
+    obras.forEach(function(obra,i) {
+        $obrasReferencias[i].classList.add(obra);
+    });
+    titulos.forEach(function(titulo,i) {
+        $titulo[i].innerHTML = ""+titulo.titulo+"";
+        $autor[i].innerHTML = ""+titulo.autor+"";
+    });
+    
+}
+
 function configurarJuego() {
-    const obras = ['renacimiento1', 'renacimiento2', 'renacimiento3', 'renacimiento4', 'renacimiento5', 'renacimiento6','renacimiento7','renacimiento8'];
+    const obras = [''+estiloTablero+'1', ''+estiloTablero+'2', ''+estiloTablero+'3', ''+estiloTablero+'4', ''+estiloTablero+'5', ''+estiloTablero+'6',''+estiloTablero+'7',''+estiloTablero+'8'];
     const obrasDuplicadas = obras.concat(obras);
     configurarCuadros($cuadros, obrasDuplicadas);
     manejarEventos($tablero);
+    mostrarObrasReferencia(obras);
 }
+
 
 function manejarEventos($tablero) {
     $tablero.onclick = function(e) {
@@ -21,13 +65,14 @@ function manejarEventos($tablero) {
       if ($elementoAnverso.classList.contains('anverso')) {
         let $divReverso = e.path[1]
         $elementoReverso = $divReverso.querySelector(".cuadro > .reverso"); //Almacena el reverso del cuadro que contiene la clase obra
-        console.log($elementoReverso)
         manejarClickCuadro($elementoAnverso , $elementoReverso);
+        
       }
     };
 }
   
 function configurarCuadros($cuadros, obras) {
+    
   const obrasAleatoreas = obras.sort(function() {
       return 0.5 - Math.random();
   });
@@ -94,18 +139,18 @@ setTimeout(function() {
     $cuadro.parentElement.classList.add('completo');
     $cuadro.remove();
     evaluarFinDeJuego();
-}, 500);
+}, 1600);
 }
   
 function evaluarFinDeJuego() {
 if (document.querySelectorAll('.anverso').length === 0) {
     setTimeout(function(){
-        $tablero.style.display = 'none';
+        const $tableroGeneral = document.querySelector("#tableroGeneral");
+        $tableroGeneral.style.display = 'none';
         $mensajeFinJuego.querySelector('strong').textContent = turnos.toString();
         $mensajeFinJuego.style.display = 'block';
-    },2000);
+    },1500);
 }
 }
-  
 
 configurarJuego();
