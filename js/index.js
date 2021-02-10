@@ -54,8 +54,10 @@ function manejarClickCuadro($elementoAnverso, $elementoReverso) {
         turnos++;
   
         if (cuadrosSonIguales($primerCuadro, $elementoReverso)) {
-        eliminarCuadro($primerCuadroReverso);
-        eliminarCuadro($cuadroReverso);
+            ocultarCuadro($primerCuadroAnverso, $primerCuadro);
+            ocultarCuadro($elementoAnverso, $elementoReverso);
+            eliminarCuadro($primerCuadroAnverso);
+            eliminarCuadro($elementoAnverso);
         } else {
             ocultarCuadro($primerCuadroAnverso, $primerCuadro);
             ocultarCuadro($elementoAnverso, $elementoReverso);
@@ -96,10 +98,12 @@ setTimeout(function() {
 }
   
 function evaluarFinDeJuego() {
-if (document.querySelectorAll('.cuadro').length === 0) {
-    $tablero.style.display = 'none';
-    $mensajeFinJuego.querySelector('strong').textContent = turnos.toString();
-    $mensajeFinJuego.style.display = 'block';
+if (document.querySelectorAll('.anverso').length === 0) {
+    setTimeout(function(){
+        $tablero.style.display = 'none';
+        $mensajeFinJuego.querySelector('strong').textContent = turnos.toString();
+        $mensajeFinJuego.style.display = 'block';
+    },2000);
 }
 }
   
